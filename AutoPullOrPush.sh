@@ -2,16 +2,14 @@
 # author:wang
 # url:wangjiawei.wang
 
-cat nbug.sh
-
 echo " "
 echo "------ 输入 ctrl+c 退出当前shell脚本 ------"
 echo " "
 
 # 项目选择：
 echo "请选择您要操作的项目："
-echo "1. 赚赚助手"
-echo "2. 赚赚"
+echo "1. 助手"
+echo "2. 其它"
 read paramWhich
 echo "-----------------------------------------"
 
@@ -25,12 +23,12 @@ do
 	if test -n "$paramWhich"
 	then
     	case $paramWhich in
-    		1 ) echo "您选择了赚赚助手"
+    		1 ) echo "您选择了助手"
 				# currentPath="$filePath_quanzheng"
 				cd ${filePath_quanzheng}
 				break
     		;;
-    		2 ) echo "你选择了赚赚"
+    		2 ) echo "你选择了其它"
 				# currentPath="$filePath_newzhuanzhuan"
 				cd ${filePath_newzhuanzhuan}
 				break
@@ -64,12 +62,10 @@ case $codeUse in
 				# 上传代码：查看本地 - 添加修改 - 添加到本地
 				git status
 				git add .
-				sleep 0.5
 				git pull origin $whichBranch
 
 				echo "请输入您修改的内容："
 				read changeInfo
-				sleep 0.5
 				git commit -m $changeInfo
 
 				echo "正在为您上传代码："
